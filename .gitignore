@@ -1,0 +1,16 @@
+# dependencies
+node_modules
+*.log
+
+# build output
+dist
+dist-ssr
+*.local
+.DS_Store
+
+# monorepo build output (where Vite writes per-app builds)
+.dist/
+
+# editor junk
+.vscode/
+.idea/

@@ -1,0 +1,17 @@
+{
+  "name": "react-components",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm -ws --if-present run build",
+    "clean": "rm -rf .dist"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "package.json": "^2.0.1"
+  }
+}
