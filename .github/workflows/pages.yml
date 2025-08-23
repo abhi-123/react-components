@@ -48,6 +48,8 @@ jobs:
         with:
           path: .dist
 
+      - name: Copy root index.html
+        run: cp index.html .dist/index.html
   deploy:
     needs: build
     runs-on: ubuntu-latest
