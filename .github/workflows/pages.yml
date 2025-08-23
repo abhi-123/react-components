@@ -28,11 +28,12 @@ jobs:
 
       - name: Install
         run: npm ci
+        # If your lockfile isn't updated for workspaces yet, temporarily:
+        # run: npm install --workspaces --include-workspace-root
 
       - name: Build all workspaces
         run: npm run build
 
-      # SPA fallback for deep links in each built subfolder
       - name: Create SPA 404 fallbacks
         run: |
           if [ -d ".dist" ]; then
@@ -43,13 +44,26 @@ jobs:
             done
           fi
 
+      # ✅ Copy landing page into the artifact BEFORE upload
+      - name: Copy root index.html to artifact
+        run: |
+          mkdir -p .dist
+          cp index.html .dist/index.html
+
+      # (Optional) List artifact contents for debugging
+      - name: Show artifact tree
+        run: |
+          echo "---- .dist ----"
+          ls -la .dist || true
+          for d in .dist/*; do
+            [ -d "$d" ] && echo "---- $d ----" && ls -la "$d";
+          done
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: .dist
 
-      - name: Copy root index.html
-        run: cp index.html .dist/index.html
   deploy:
     needs: build
     runs-on: ubuntu-latest
