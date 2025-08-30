@@ -1,5 +1,5 @@
 
-import FileExplorer from './components/file-expolrer'
+import FileExplorer from './components/file-explorer'
 import './App.css'
 
 function App() {
