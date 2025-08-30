@@ -8,7 +8,7 @@ export default function FileExplorer() {
       name: "Documents",
       children: [
         { id: 3, name: "Word.doc" },
-        { id: 4, name: "Powerpoint.ppt" }
+        { id: 4, name: "Powerpoint.ppt" } 
       ]
     },
     {
