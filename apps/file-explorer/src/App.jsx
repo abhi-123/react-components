@@ -1,10 +1,11 @@
 
+import FileExplorer from './components/file-expolrer'
 import './App.css'
 
 function App() {
 
   return (
-   <h1>This is File Explorer</h1>
+<FileExplorer />
   )
 }
 
