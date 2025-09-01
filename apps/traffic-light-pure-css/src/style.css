@@ -1,0 +1,51 @@
+.traffic-light {
+  width: 100px;
+  background: #222;
+  padding: 20px 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+.traffic-light-horizontal {
+  background: #222;
+  padding : 25px 20px;
+  border-radius: 20px;
+  display: flex;
+  gap: 15px;
+  width : 240px;
+  justify-content : center;
+  margin-top: 2rem;
+}
+
+.light {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  opacity: 0.2;
+  box-shadow: 0 0 10px #000 inset;
+}
+
+.red    { background: red; animation: redLight 7.5s infinite; }
+.yellow { background: yellow; animation: yellowLight 7.5s infinite; }
+.green  { background: limegreen; animation: greenLight 7.5s infinite; }
+
+/* Red: 0–4000ms (≈0–53.33%) */
+@keyframes redLight {
+  0%, 53.33%   { opacity: 1; box-shadow: 0 0 20px red; }
+  53.34%, 100% { opacity: 0.2; box-shadow: none; }
+}
+
+/* Yellow: 4000–4500ms (≈53.33–60%) */
+@keyframes yellowLight {
+  0%, 53.33%   { opacity: 0.2; box-shadow: none; }
+  53.34%, 60%  { opacity: 1; box-shadow: 0 0 20px yellow; }
+  60.01%, 100% { opacity: 0.2; box-shadow: none; }
+}
+
+/* Green: 4500–7500ms (≈60–100%) */
+@keyframes greenLight {
+  0%, 60%      { opacity: 0.2; box-shadow: none; }
+  60.01%, 100% { opacity: 1; box-shadow: 0 0 20px limegreen; }
+}
