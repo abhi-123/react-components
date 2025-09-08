@@ -7,6 +7,7 @@
   flex-direction: column;
   gap: 4rem;
   width: 100%;
+  margin-top: 5rem;
 }
 .stepperContainer {
   width: 100%;
@@ -23,7 +24,7 @@ width: 50px;
     height: 50px;
     text-align: center;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 1px solid rgb(129, 123, 123);
     /* align-items: center; */
     place-content: center;
 }
@@ -35,13 +36,66 @@ width: 50px;
 
 }
 .whiteBackground {
-  background-color: white;
-  color: black;
+  background-color: rgb(3, 127, 3);
+  color: white;
 }
 .buttonContainer {
   display: flex;
   gap: 2rem;
   width: 100%;
   justify-content: center;
+
+  /* Base button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+  /* Primary (Next button) */
+.btn-primary {
+  background: #4f46e5;       /* indigo */
+  color: #fff;
+  border-color: #4f46e5;
+}
+.btn-primary:hover {
+  background: #4338ca;
+}
+.btn-primary:active {
+  transform: scale(0.96);
+}
+.btn-primary:disabled {
+  background: #a5b4fc;
+  cursor: not-allowed;
+}
+
+/* Secondary (Prev button) */
+.btn-secondary {
+  background: #f3f4f6;       /* gray background */
+  color: #111827;
+  border-color: #d1d5db;
+
+}
+.btn-secondary:hover {
+  background: #e5e7eb;
+}
+.btn-secondary:active {
+  transform: scale(0.96);
+}
+.btn-secondary:disabled {
+  background: #f9fafb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
 
 }

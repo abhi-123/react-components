@@ -41,12 +41,12 @@ function handlePrevNext(type) {
     })
 }
 </div>
-{stepperData[filled] && <div style={{display:'flex',justifyContent:'center'}}>{stepperData[filled].text}</div>}
+{stepperData[filled] && <div style={{display:'flex',justifyContent:'center',fontWeight:'800'}}>{stepperData[filled].text}</div>}
 { filled > 2 && <div style={{display:'flex',justifyContent:'center'}}>Data Submitted Successfully</div>}
 
 { filled < 3 && <div className="buttonContainer">
-<button onClick={() => handlePrevNext('prev')} disabled={filled == 0}>Previous</button>
-<button onClick={() => handlePrevNext('next')} disabled={filled == 3}>{filled === 2 ? 'Finish' : 'Next'}</button>
+<button className="btn btn-secondary" onClick={() => handlePrevNext('prev')} disabled={filled == 0}>Previous</button>
+<button className="btn btn-primary" onClick={() => handlePrevNext('next')} disabled={filled == 3}>{filled === 2 ? 'Finish' : 'Next'}</button>
 </div>}
     </div>
     )
