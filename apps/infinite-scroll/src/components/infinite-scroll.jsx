@@ -18,7 +18,7 @@ export default function InfiniteScroll() {
           getProducts();
         }
       },
-      { root: null }
+      { root: null,rootMargin: '200px',threshold: 0 }
     );
     observer.observe(senitel);
     return () => {
