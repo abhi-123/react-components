@@ -1,10 +1,11 @@
-import { defineConfig } from "vite";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-// Vite config for traffic-light-pure-css app
 export default defineConfig({
-  base: "/react-components/infinite-scroll/",  // 👈 repo/app path for GitHub Pages
+  plugins: [react()],
+  base: '/react-components/search-filter/',
   build: {
-    outDir: "../../.dist/infinite-scroll",     // 👈 output goes into shared .dist
-    emptyOutDir: false                                // don't wipe other apps’ builds
+    outDir: '../../.dist/search-filter',
+    emptyOutDir: false
   }
-});
+})
