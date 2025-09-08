@@ -1,0 +1,37 @@
+.pageContainer {
+display: flex;
+    width: 100%;
+    /* gap: 2rem; */
+    flex-wrap: wrap;
+    /* margin: auto; */
+    /* padding: 2rem; */
+    /* justify-content
+Aligns flex items along the main axis of the current line of the flex container.
+Learn more
+
+Don't show
+: space-around; */
+}
+
+.productInfo {
+   width: 21%;
+    /* height: 20rem; */
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    padding: 20px;
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #ccc;         /* Light gray background */
+  border-top: 5px solid #2563eb;  /* Blue top border */
+  border-radius: 50%;             /* Circle */
+  animation: spin 1s linear infinite;
+  margin: 1rem auto;              /* center horizontally */
+}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

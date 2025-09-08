@@ -35,7 +35,7 @@ function App() {
         console.log(searchvalue,'searchvalue 123')
         filterProductList(e.target.value);
       
-      },3000);
+      },500);
   }
 
   function filterProductList(searchvalue) {
