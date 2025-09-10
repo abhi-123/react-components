@@ -1,0 +1,23 @@
+.authContainer {
+  display: flex;
+  width: 100;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.auth-input {
+  width: 40px; /* Sets the width of each input field */
+  height: 50px; /* Sets the height of each input field */
+  font-size: 24px; /* Adjusts the font size of the entered digits */
+  text-align: center; /* Centers the text within each input field */
+  border: 2px solid #ccc; /* Adds a border to each input field */
+  border-radius: 5px; /* Rounds the corners of the input fields */
+  outline: none; /* Removes the default outline on focus */
+  background-color: #f0f0f0; /* Sets a background color */
+  color: #333; /* Sets the text color */
+}
+
+.auth-input:focus {
+  border-color: #007bff; /* Changes border color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Adds a subtle shadow on focus */
+}
