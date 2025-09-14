@@ -1,0 +1,147 @@
+ /* -------- Background container -------- */
+.theme-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;   /* non-interactive */
+  z-index: -1;            /* behind app */
+  overflow: hidden;
+}
+
+/* align the shapes near top-right (you can change) */
+.theme-bg__sun,
+.theme-bg__moon {
+  position: absolute;
+  top: 6vh;
+  right: 6vw;
+  width: clamp(64px, 12vmin, 160px);
+  height: clamp(64px, 12vmin, 160px);
+  border-radius: 50%;
+  transform-origin: center;
+  transition:
+    opacity 600ms cubic-bezier(.2,.9,.2,1),
+    transform 600ms cubic-bezier(.2,.9,.2,1),
+    filter 600ms cubic-bezier(.2,.9,.2,1);
+  will-change: opacity, transform, filter;
+}
+
+/* Sun: warm radial gradient + subtle glow */
+.theme-bg__sun {
+  background: radial-gradient(circle at 35% 30%, #fff8d6 0%, #ffe07a 25%, #ffb74d 55%, rgba(255,183,77,0.0) 70%);
+  box-shadow: 0 8px 30px rgba(255, 165, 30, 0.18), 0 2px 8px rgba(255, 165, 30, 0.12) inset;
+  filter: saturate(1.05) blur(0px);
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Moon: slightly cool crescent using mask + background */
+.theme-bg__moon {
+  /* base circle */
+  background: radial-gradient(circle at 40% 35%, #f8fbff 0%, #e6f0ff 40%, rgba(230,240,255,0.0) 70%);
+  box-shadow: 0 6px 18px rgba(12, 18, 30, 0.18);
+  opacity: 0;
+  transform: translateY(10%) scale(0.85);
+  /* create crescent by masking a shifted circle (supported in modern browsers) */
+  -webkit-mask:
+    radial-gradient(circle at 55% 50%, black 0% 45%, transparent 48%);
+  mask:
+    radial-gradient(circle at 55% 50%, black 0% 45%, transparent 48%);
+}
+
+/* When dark mode is active, show moon and hide sun */
+html.dark .theme-bg__sun {
+  opacity: 0;
+  transform: translateY(-8%) scale(0.9) rotate(-8deg);
+  filter: blur(.6px) brightness(.8);
+}
+
+html.dark .theme-bg__moon {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0) brightness(1);
+}
+
+/* optional: stars that fade in on dark */
+.theme-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+  background-size: 200px 200px, 120px 120px;
+  background-position: 10% 20%, 70% 80%;
+  opacity: 0;
+  transition: opacity 800ms ease;
+  pointer-events: none;
+}
+
+html.dark .theme-bg::after {
+  opacity: 0.18; /* stars visible in dark */
+  filter: blur(.2px) saturate(.9);
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .theme-bg__sun,
+  .theme-bg__moon,
+  .theme-bg::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+ .toggleContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 100px;
+  align-items: flex-start;
+ }
+ .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 28px;
+    }
+
+    /* Hide default checkbox */
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* Slider (background track) */
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.3s;
+      border-radius: 34px;
+    }
+
+    /* Circle knob */
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    /* Checked state */
+    input:checked + .slider {
+      background-color: #4caf50;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(22px);
+    }
