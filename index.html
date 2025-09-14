@@ -21,24 +21,33 @@
         margin: 0 auto;
         max-width: 1000px;
 
-        /* grid layout */
+        /* responsive grid */
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 1.5rem;
+
+        /* ensure equal card height per row */
+        align-items: stretch;
       }
       li {
-        margin: 0; /* handled by gap */
+        margin: 0; /* handled by grid gap */
       }
       a {
-        display: block;
+        display: flex; /* flexbox for centering */
+        align-items: center; /* vertical center */
+        justify-content: center; /* horizontal center */
         text-decoration: none;
         padding: 1.5rem;
         border-radius: 12px;
         background: white;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         transition: 0.2s ease;
-        text-align: center;
         font-weight: 500;
+        text-align: center;
+        color: rebeccapurple;
+
+        /* 👇 fill parent li height */
+        height: 100%;
       }
       a:hover {
         background: #e9ecef;
