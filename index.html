@@ -18,24 +18,32 @@
       ul {
         list-style: none;
         padding: 0;
-        max-width: 400px;
         margin: 0 auto;
+        max-width: 1000px;
+
+        /* grid layout */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
       }
       li {
-        margin: 1rem 0;
+        margin: 0; /* handled by gap */
       }
       a {
         display: block;
         text-decoration: none;
-        padding: 1rem;
-        border-radius: 8px;
+        padding: 1.5rem;
+        border-radius: 12px;
         background: white;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         transition: 0.2s ease;
         text-align: center;
+        font-weight: 500;
       }
       a:hover {
         background: #e9ecef;
+        transform: translateY(-4px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
       }
     </style>
   </head>
@@ -51,7 +59,7 @@
       <li><a href="./infinite-scroll/">Infinite Scroll Component</a></li>
       <li><a href="./transfer-list/">Transfer List Component</a></li>
       <li><a href="./nested-comments/">Nested Comments Component</a></li>
-      <li><a href="./traffic-light-pure-css/">Traffic Light(CSS Only)</a></li>
+      <li><a href="./traffic-light-pure-css/">Traffic Light (CSS Only)</a></li>
     </ul>
   </body>
 </html>
